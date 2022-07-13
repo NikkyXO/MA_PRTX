@@ -20,29 +20,6 @@ if __name__ == '__main__':
 """
 
 
-"""
-
-
-
-def maxSumSubarraySumKSize(arr, k):
-    ans = -math.inf
-    windowSum = 0
-    windowStart = 0
-
-    for windowEnd in range(len(arr)):
-        windowSum += arr[windowEnd]
-        if windowEnd >= k - 1:
-            ans = max(ans, windowSum)
-            windowSum -= arr[windowStart]
-            windowStart += 1
-
-    return ans
-
-
-
-"""
-
-
 def maxSumSubarraySumKSize(array=[], k=0):
 
     windowStart = 0
