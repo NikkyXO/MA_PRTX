@@ -20,14 +20,22 @@ Explanation: There is no common prefix among the input strings.
 
 
 def longestCommonPrefix(strs) -> str:
-    if not strs:
+    if len(strs) == 0:
         return ""
-    for i in range(len(strs[0])):
-        chars = strs[0][i]
-        for j in range(1, len(strs)):
-            if i == len(strs[j]) or strs[j][i] != chars:
-                return strs[0][:i]
-    return strs[0]
+    if len(strs) == 1:
+        return strs[0]
+    prefx = strs[0]
+    pf_len = len(prefx)
+
+    for s in strs[1:]:
+        while prefx != s[0:pf_len]:
+            prefx = prefx[0:(pf_len - 1)]
+            pf_len -= 1
+
+            if pf_len == 0:
+                return ""
+
+    return prefx
 
 
 if __name__ == "__main__":
