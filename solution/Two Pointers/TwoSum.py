@@ -40,8 +40,18 @@ def twoSum(arr, target):
     return ret_arr
 
 
+def twoSum1(arr, target):
+
+    nums_hash = {}
+    for i, num in enumerate(arr):
+        Match = target - num
+        if Match in nums_hash:
+            return [nums_hash[Match], i]
+        nums_hash[num] = i
+
+
 if __name__ == "__main__":
     arr = [1, 2, 3, 4, 6]
     target = 6
-    res = twoSum(arr, target)
+    res = twoSum1(arr, target)
     print(res)
